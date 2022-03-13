@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    dynamic:
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      strict: false #严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源
+      datasource:
+        master:
+          url: jdbc:mysql://localhost:3306/mybatisPlusdatabase?serverTimezone=GMT%2B8&characterEncoding=utf8&useSSL=false
+          username: userMyBatisPlus
+          password: userMyBatisPlus
+          driver-class-name: com.mysql.cj.jdbc.Driver # 3.2.0开始支持SPI可省略此配置
+        slave_1:
+          url: jdbc:mysql://localhost:3306/mybatisPlusdatabase_slave1?serverTimezone=GMT%2B8&characterEncoding=utf8&useSSL=false
+          username: userMyBatisPlus_slave1
+          password: userMyBatisPlus_slave1
+          driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+#配置mybatis-log 显示sql日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
